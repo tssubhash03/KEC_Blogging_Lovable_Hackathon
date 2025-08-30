@@ -20,7 +20,7 @@ const User = mongoose.model("User", UserSchema);
 // Routes
 app.get("/api/users", async (req, res) => {
   const users = await User.find();
-  res.json(users);
+  res.json(users)
 });
 
 app.post("/api/users", async (req, res) => {
@@ -28,5 +28,7 @@ app.post("/api/users", async (req, res) => {
   await newUser.save();
   res.json(newUser);
 });
-
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 app.listen(5000, () => console.log("🚀 Server running on port 5000"));
